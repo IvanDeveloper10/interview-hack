@@ -1,53 +1,50 @@
-# Next.js & HeroUI Template
+# 🚀 Interview Hack
 
-This is a template for creating applications using Next.js 14 (app directory) and HeroUI (v2).
+**Interview Hack** is a web application designed to help you practice and sharpen your programming skills through coding and theoretical interview questions. It features multiple difficulty levels and a modern UI built with **Next.js**, **TypeScript**, **TailwindCSS**, and **HeroUI**.
 
-[Try it on CodeSandbox](https://githubbox.com/heroui-inc/heroui/next-app-template)
+<img width="2560" height="1440" alt="interview-hack-banner" src="https://github.com/user-attachments/assets/0e2734cb-eae6-4ecc-ad24-494e194df6e9" />
 
-## Technologies Used
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [HeroUI v2](https://heroui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+---
 
-## How to Use
+## ✨ Features
 
-### Use the template with create-next-app
+- ✅ Coding and theory-based programming interview questions
+- 🧠 Difficulty levels: *Easy*, *Medium*, *Hard*
+- 💡 Clean and modern interface with HeroUI + TailwindCSS
+- ⚡ Fast navigation powered by Next.js and TypeScript
+- 📊 Progress tracking and score system
+- 🔄 Randomized questions per session
+- 🔍 Ideal for technical interview simulation
 
-To create a new project based on this template using `create-next-app`, run the following command:
+---
+
+## 🛠️ Tech Stack
+
+- **Framework:** [Next.js](https://nextjs.org/)
+- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- **Styling:** [TailwindCSS](https://tailwindcss.com/)
+- **UI Components:** [HeroUI](https://heroui.dev/)
+
+---
+
+## 📸 Preview
+
+![Demo](https://your-image-url.com/demo.gif)
+
+---
+
+## 🚀 Getting Started
 
 ```bash
-npx create-next-app -e https://github.com/heroui-inc/next-app-template
-```
+# Clone the repository
+git clone https://github.com/IvanDeveloper10/interview-hack.git
 
-### Install dependencies
+# Navigate into the project directory
+cd interview-hack
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
-
-```bash
+# Install dependencies
 npm install
-```
 
-### Run the development server
-
-```bash
+# Run the development server
 npm run dev
-```
-
-### Setup pnpm (optional)
-
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@heroui/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-## License
-
-Licensed under the [MIT license](https://github.com/heroui-inc/next-app-template/blob/main/LICENSE).
