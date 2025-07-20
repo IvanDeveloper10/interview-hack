@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-po {
+  font-family: var(--font-poppins);
+}
+.text-2p {
+  font-family: var(--font-press-start);
+}
