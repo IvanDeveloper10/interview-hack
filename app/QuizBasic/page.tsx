@@ -5,7 +5,6 @@ import { Card, CardHeader, CardBody } from '@heroui/card';
 import { RadioGroup, Radio } from '@heroui/radio';
 import { Modal, ModalContent, ModalBody, ModalFooter, ModalHeader } from '@heroui/modal';
 import { Button } from '@heroui/button';
-import { Code } from '@heroui/code';
 import Link from 'next/link';
 
 type Option = {
@@ -123,6 +122,7 @@ export default function QuizBasic() {
 
   const handleSubmit = () => {
     let correctCount = 0;
+
     questions.forEach((q, index) => {
       if (answers[index] === q.correct) correctCount++;
     });
@@ -150,7 +150,7 @@ export default function QuizBasic() {
         ))}
       </div>
       <div className='my-10 flex w-full justify-center items-center'>
-        <Button onPress={handleSubmit} className='text-po w-96' size='lg' color='success' variant='ghost'>
+        <Button className='text-po w-96' color='success' size='lg' variant='ghost' onPress={handleSubmit}>
           SUBMIT EXAM
         </Button>
       </div>
@@ -168,7 +168,7 @@ export default function QuizBasic() {
               </ModalBody>
               <ModalFooter>
                 <Link href={'/Levels'}>
-                  <Button color='primary' className='text-po' size='md' variant='shadow' onPress={onClose}>
+                  <Button className='text-po' color='primary' size='md' variant='shadow' onPress={onClose}>
                     Go To Levels
                   </Button>
                 </Link>

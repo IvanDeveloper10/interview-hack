@@ -28,9 +28,7 @@ export default function Levels() {
           <CardHeader className='flex justify-center items-center'>
             <h2 className='text-po font-bold text-center'>LEVEL ONE</h2>
           </CardHeader>
-          <CardBody>
- 
-          </CardBody>
+          <CardBody />
           <CardFooter className='flex justify-center items-center'>
             <Link href={'/Levels/LevelOne'}>
               <Button className='text-po w-48' color='secondary' size='md' variant='shadow'>Go To Level One 1</Button>
@@ -41,9 +39,7 @@ export default function Levels() {
           <CardHeader className='flex justify-center items-center'>
             <h2 className='text-po text-center font-bold'>LEVEL TWO</h2>
           </CardHeader>
-          <CardBody>
-
-          </CardBody>
+          <CardBody />
           <CardFooter className='flex justify-center items-center'>
             <Link href={'/Levels/LevelTwo'}>
               <Button className='text-po w-48' color='secondary' size='md' variant='shadow'>Go To Level Two 2</Button>
@@ -54,9 +50,7 @@ export default function Levels() {
           <CardHeader className='flex justify-center items-center'>
             <h2 className='text-po text-center font-extrabold'>LEVEL THREE</h2>
           </CardHeader>
-          <CardBody>
-
-          </CardBody>
+          <CardBody />
           <CardFooter className='flex justify-center items-center'>
             <Link href={'/Levels/LevelThree'}>
               <Button className='text-po w-48' color='secondary' size='md' variant='shadow'>Go To Level Three 3</Button>
@@ -68,9 +62,7 @@ export default function Levels() {
           <CardHeader className='flex justify-center items-center'>
             <h2 className='text-po text-center font-bold'>LEVEL FOUR</h2>
           </CardHeader>
-          <CardBody>
-
-          </CardBody>
+          <CardBody />
           <CardFooter className='flex justify-center items-center'>
             <Link href={'/Levels/LevelFour'}>
               <Button className='text-po w-48' color='danger' size='md' variant='shadow'>Go To Level Four 4</Button>
@@ -81,9 +73,7 @@ export default function Levels() {
           <CardHeader className='flex justify-center items-center'>
             <h2 className='text-po text-center font-bold'>LEVEL FIVE</h2>
           </CardHeader>
-          <CardBody>
-
-          </CardBody>
+          <CardBody />
           <CardFooter className='flex justify-center items-center'>
             <Link href={'/Levels/LevelFive'}>
               <Button className='text-po w-48' color='danger' size='md' variant='shadow'>Go To Level Five 5</Button>
@@ -94,9 +84,7 @@ export default function Levels() {
           <CardHeader className='flex justify-center items-center'>
             <h2 className='text-po text-center font-bold'>LEVEL SIX</h2>
           </CardHeader>
-          <CardBody>
-
-          </CardBody>
+          <CardBody />
           <CardFooter className='flex justify-center items-center'>
             <Link href={'/Levels/LevelSix'}>
               <Button className='text-po w-48' color='danger' size='md' variant='shadow'>Go To Level Six 6</Button>
@@ -108,9 +96,7 @@ export default function Levels() {
           <CardHeader className='flex justify-center items-center'>
             <h2 className='text-po text-center font-bold'>LEVEL SEVEN</h2>
           </CardHeader>
-          <CardBody>
-
-          </CardBody>
+          <CardBody />
           <CardFooter className='flex justify-center items-center'>
             <Link href={'/Levels/LevelSeven'}>
               <Button className='text-po w-48' color='success' size='md' variant='shadow'>Go To Level Seven 7</Button>
@@ -121,9 +107,7 @@ export default function Levels() {
           <CardHeader className='flex justify-center items-center'>
             <h2 className='text-po text-center font-bold'>LEVEL EIGHT</h2>
           </CardHeader>
-          <CardBody>
-
-          </CardBody>
+          <CardBody />
           <CardFooter className='flex justify-center items-center'>
             <Link href={'/Levels/LevelEight'}>
               <Button className='text-po w-48' color='success' size='md' variant='shadow'>Go To Level Eight 8</Button>
@@ -134,9 +118,7 @@ export default function Levels() {
           <CardHeader className='flex justify-center items-center'>
             <h2 className='text-po text-center font-bold'>LEVEL NINE</h2>
           </CardHeader>
-          <CardBody>
-
-          </CardBody>
+          <CardBody />
           <CardFooter className='flex justify-center items-center'>
             <Link href={'/Levels/LevelNine'}>
               <Button className='text-po w-48' color='success' size='md' variant='shadow'>Go To Level Nine 9</Button>

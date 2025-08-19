@@ -123,10 +123,12 @@ export default function LevelFourPython() {
   const handleSubmit = () => {
     if (Object.keys(answers).length < questions.length) {
       alert('Please answer all questions before submitting.');
+
       return;
     }
 
     let correctCount = 0;
+
     questions.forEach((q, index) => {
       if (answers[index] === q.correct) correctCount++;
     });
@@ -163,11 +165,11 @@ export default function LevelFourPython() {
       </div>
       <div className='my-10 flex w-full justify-center items-center'>
         <Button
-          onPress={handleSubmit}
           className='w-96 text-po'
-          size='lg'
           color='success'
+          size='lg'
           variant='ghost'
+          onPress={handleSubmit}
         >
           SUBMIT EXAM
         </Button>
@@ -187,7 +189,7 @@ export default function LevelFourPython() {
                 <p>Score: {((score / questions.length) * 100).toFixed(2)}%</p>
               </ModalBody>
               <ModalFooter>
-                <Button color='primary' onPress={onClose} className='text-po'>
+                <Button className='text-po' color='primary' onPress={onClose}>
                   Close
                 </Button>
               </ModalFooter>

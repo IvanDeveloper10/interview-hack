@@ -112,19 +112,23 @@ function computeBotAnswer(
     ? question.correctIndex
     : (() => {
       const others = question.options.map((_, i) => i).filter(i => i !== question.correctIndex)
+
       return others[Math.floor(rng() * others.length)]
     })()
 
   const whenMs = Math.floor(questionMs * (0.2 + 0.6 * rng()))
+
   return { answerIndex, whenMs }
 }
 
 function makeSeededRng(seed: number) {
   let s = seed >>> 0
+
   return () => {
     s ^= s << 13
     s ^= s >>> 17
     s ^= s << 5
+
     return ((s >>> 0) / 0xffffffff)
   }
 }
@@ -175,19 +179,23 @@ export default function GameBot(): JSX.Element {
     setUserPick(null)
     setBotPick(null)
     const plan = computeBotAnswer(QUESTIONS[index], botAccuracy, timePerQuestionMs, seededRng)
+
     botTimerRef.current = window.setTimeout(() => {
       setBotPick(plan.answerIndex)
     }, plan.whenMs)
     const tick = () => {
       const elapsed = performance.now() - startRef.current
       const left = timePerQuestionMs - elapsed
+
       setCountdownMs(Math.max(0, left))
       if (left <= 0) {
         revealAndScore()
+
         return
       }
       timerRef.current = window.setTimeout(tick, 100)
     }
+
     tick()
   }
 
@@ -240,9 +248,11 @@ export default function GameBot(): JSX.Element {
     if (current + 1 >= QUESTIONS.length) {
       setPhase('finished')
       clearTimers()
+
       return
     }
     const nextIndex = current + 1
+
     setCurrent(nextIndex)
     setupTimers(nextIndex)
   }
@@ -265,6 +275,7 @@ export default function GameBot(): JSX.Element {
     if (phase !== 'finished') return null
     if (userScore > botScore) return 'USER'
     if (botScore > userScore) return 'BOT'
+
     return '🤝 DEAD HEAT'
   }, [phase, userScore, botScore])
 
@@ -276,7 +287,7 @@ export default function GameBot(): JSX.Element {
             <h1 className='text-3xl text-po font-bold text-black'>PROGRAMMING TRIVIA: <a className='bg-emerald-400 text-white rounded-xl px-5'>User vs Bot</a></h1>
             <p className='mt-3 text-black text-po text-lg'>10 questions, 20 seconds per question. The bot has ~68% accuracy and answers in a random time. Whoever answers the most correctly wins!</p>
             <div className='mt-6 flex flex-wrap gap-3'>
-              <Button onPress={startGame} className='text-po w-96' variant='shadow' color='secondary' size='lg'>
+              <Button className='text-po w-96' color='secondary' size='lg' variant='shadow' onPress={startGame}>
                 START GAME
               </Button>
             </div>
@@ -312,6 +323,7 @@ export default function GameBot(): JSX.Element {
                 const q = QUESTIONS.find(q => q.id === h.qId)!
                 const uRight = h.userPick !== null && h.userPick === h.correctIndex
                 const bRight = h.botPick !== null && h.botPick === h.correctIndex
+
                 return (
                   <li key={i} className='rounded-lg border border-slate-700 p-3 bg-slate-900/30'>
                     <div className='text-sm font-medium'>{i + 1}. {q.text}</div>
@@ -331,7 +343,7 @@ export default function GameBot(): JSX.Element {
             </ul>
 
             <div className='mt-6 flex gap-3'>
-              <Button onPress={startGame} className='w-96' variant='shadow' color='secondary'>
+              <Button className='w-96' color='secondary' variant='shadow' onPress={startGame}>
                 Play Again
               </Button>
             </div>
@@ -383,9 +395,9 @@ export default function GameBot(): JSX.Element {
               return (
                 <button
                   key={idx}
-                  onClick={() => onUserPick(idx)}
-                  disabled={answerState !== 'idle'}
                   className={classNames(base, color, answerState !== 'idle' && 'opacity-90 cursor-not-allowed')}
+                  disabled={answerState !== 'idle'}
+                  onClick={() => onUserPick(idx)}
                 >
                   <span className='font-semibold'>{String.fromCharCode(65 + idx)}.</span> {opt}
                 </button>
@@ -400,10 +412,10 @@ export default function GameBot(): JSX.Element {
               {answerState !== 'revealed' ? (
                 <>
                   <Button
-                    onPress={() => revealAndScore()}
                     className='w-96 text-po'
-                    variant='shadow'
                     color='danger'
+                    variant='shadow'
+                    onPress={() => revealAndScore()}
                   >
                     Reveal Now
                   </Button>
@@ -411,10 +423,10 @@ export default function GameBot(): JSX.Element {
               ) : (
                 <>
                   <Button
-                    onPress={next}
                     className='w-96 text-po'
-                    variant='shadow'
                     color='success'
+                    variant='shadow'
+                    onPress={next}
                   >
                     Next
                   </Button>

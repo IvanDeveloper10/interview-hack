@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem } from '@heroui/navbar';
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@heroui/navbar';
 import Link from 'next/link';
 import { Tooltip } from '@heroui/tooltip';
 
@@ -12,13 +12,13 @@ export default function NavBar() {
         </NavbarBrand>
         <NavbarContent className='flex justify-center items-center gap-8'>
           <NavbarItem>
-            <Link className='text-po flex justify-center items-center gap-1' href={'/'}><i className='fi fi-rr-home flex justify-center items-center'></i> Home</Link>
+            <Link className='text-po flex justify-center items-center gap-1' href={'/'}><i className='fi fi-rr-home flex justify-center items-center' /> Home</Link>
           </NavbarItem>
           <NavbarItem>
-            <Link className='text-po flex justify-center items-center gap-1' href={'/About'}><i className='fi fi-rr-search-alt flex justify-center items-center'></i> About</Link>
+            <Link className='text-po flex justify-center items-center gap-1' href={'/About'}><i className='fi fi-rr-search-alt flex justify-center items-center' /> About</Link>
           </NavbarItem>
           <NavbarItem>
-            <Link className='text-po flex justify-center items-center gap-1' href={'/Games'}><i className='fi fi-rr-game-console-crank-handheld flex justify-center items-center'></i> Games</Link>
+            <Link className='text-po flex justify-center items-center gap-1' href={'/Games'}><i className='fi fi-rr-game-console-crank-handheld flex justify-center items-center' /> Games</Link>
           </NavbarItem>
           <Tooltip className='p-5' content={
             <div className='grid grid-cols-3 gap-4 text-po'>

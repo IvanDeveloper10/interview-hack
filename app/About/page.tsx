@@ -10,12 +10,12 @@ export default function AboutPage(): JSX.Element {
           <h1 className='text-5xl font-bold mt-10'>Dev <a className='bg-fuchsia-500 px-5 rounded-xl text-white'>FULL-STACK</a> And </h1>
           <h1 className='text-3xl mt-10'><a className='bg-green-500 px-5 rounded-xl text-white'>AI</a> programmer</h1>
           <div className='flex'>
-            <Image src={'/orpheus-image-two.png'} alt={'Orpheus Image Two'} width={300} height={250} ></Image>
-            <Image src={'/orpheus-image-one.png'} alt={'Orpheus Image One'} width={320} height={250} ></Image>
+            <Image alt={'Orpheus Image Two'} height={250} src={'/orpheus-image-two.png'} width={300}  />
+            <Image alt={'Orpheus Image One'} height={250} src={'/orpheus-image-one.png'} width={320}  />
           </div>
         </div>
         <div>
-          <Image src={'/ivan-image.png'} alt={'Ivan Image'} width={400} height={400} isZoomed radius='lg' />
+          <Image isZoomed alt={'Ivan Image'} height={400} radius='lg' src={'/ivan-image.png'} width={400} />
         </div>
       </main>
       <section className='text-po text-white flex justify-evenly my-20 px-10 gap-10'>
@@ -25,7 +25,7 @@ export default function AboutPage(): JSX.Element {
           <p className='mt-2'>Interview Hack started as a project idea for the TerminalCraft event and I eventually brought the idea to the web.</p>
         </div>
         <div className='bg-white w-2/4 flex justify-center items-center rounded-xl'>
-          <Image src={'/som-logo-image.png'} alt={'Summer Of Making Logo Image'} width={500} radius='lg' />
+          <Image alt={'Summer Of Making Logo Image'} radius='lg' src={'/som-logo-image.png'} width={500} />
         </div>
       </section>
     </Fragment>

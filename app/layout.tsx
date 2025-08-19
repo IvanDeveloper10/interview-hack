@@ -2,7 +2,9 @@ import '@/styles/globals.css';
 import { Metadata, Viewport } from 'next';
 import clsx from 'clsx';
 import { Press_Start_2P, Poppins } from 'next/font/google';
+
 import { Providers } from './providers';
+
 import { siteConfig } from '@/config/site';
 import NavBar from '@/components/NavBar';
 
@@ -41,7 +43,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang='en'>
       <head>
-        <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'></link>
+        <link href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css' rel='stylesheet' />
       </head>
       <body
         className={clsx(

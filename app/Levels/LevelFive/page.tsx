@@ -14,21 +14,21 @@ export default function LevelFive() {
           <Link href={'/Levels/LevelFive/LevelFiveJavascript'}>
             <Card isPressable>
               <CardBody>
-                <Image src={'/javascript-logo.png'} alt={''} width={200} height={100} className='rounded-lg'></Image>
+                <Image alt={''} className='rounded-lg' height={100} src={'/javascript-logo.png'} width={200} />
               </CardBody>
             </Card>
           </Link>
           <Link href={'/Levels/LevelFive/LevelFiveJava'}>
             <Card isPressable>
               <CardBody>
-                <Image src={'/java-logo.png'} alt={''} width={200} height={100} ></Image>
+                <Image alt={''} height={100} src={'/java-logo.png'} width={200}  />
               </CardBody>
             </Card>
           </Link>
           <Link href={'/Levels/LevelFive/LevelFivePython'}>
             <Card isPressable>
               <CardBody>
-                <Image src={'/python-logo.png'} alt={''} width={200} height={100}></Image>
+                <Image alt={''} height={100} src={'/python-logo.png'} width={200} />
               </CardBody>
             </Card>
           </Link>

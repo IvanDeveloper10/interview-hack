@@ -11,16 +11,16 @@ export default function Development(): JSX.Element {
         </main>
         <div className='flex justify-evenly items-center my-20'>
           <Tooltip className='text-po' content={'Next Js'}> 
-            <Image src={'/next-js-logo.svg'} alt={'NextJS Logo'} width={200} height={200} />
+            <Image alt={'NextJS Logo'} height={200} src={'/next-js-logo.svg'} width={200} />
           </Tooltip>
           <Tooltip className='text-po' content={'Typescript'}>
-            <Image src={'/typescript-logo.svg'} alt={'Typescript Logo'} width={200} height={200} className='rounded-3xl' />
+            <Image alt={'Typescript Logo'} className='rounded-3xl' height={200} src={'/typescript-logo.svg'} width={200} />
           </Tooltip>
           <Tooltip className='text-po' content={'Firebase'}>
-            <Image src={'/firebase-logo.png'} alt={'Firebase Logo'} width={200} height={200} className='rounded-3xl' />
+            <Image alt={'Firebase Logo'} className='rounded-3xl' height={200} src={'/firebase-logo.png'} width={200} />
           </Tooltip>
           <Tooltip className='text-po' content={'HeroUI'}>
-            <Image src={'/hero-ui-logo.png'} alt={'HeroUI Logo'} width={200} height={200} />
+            <Image alt={'HeroUI Logo'} height={200} src={'/hero-ui-logo.png'} width={200} />
           </Tooltip>
 
         </div>

@@ -1,16 +1,19 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import type { Room } from '@/lib/types'
+
+import { useEffect, useMemo, useState } from 'react'
 import { Button } from '@heroui/button'
 import { Input } from '@heroui/input'
 import { Card, CardBody } from '@heroui/card'
+import { doc, onSnapshot, updateDoc } from 'firebase/firestore'
+import { Chip } from '@heroui/chip';
+
 import { db, ensureAnonAuth } from '@/lib/firebase'
 import { QUESTIONS } from '@/lib/questions'
 import { classNames, msToSeconds, nowMs } from '@/lib/utils'
-import type { Room, RoomStatus } from '@/lib/types'
 import { createRoom, hostRevealOrAdvance, hostStart, joinRoom, submitPick, toggleReady } from '@/lib/game-logic'
-import { collection, doc, onSnapshot, orderBy, query, serverTimestamp, setDoc, updateDoc, limit, getDocs } from 'firebase/firestore'
-import { Chip } from '@heroui/chip';
+
 type Phase = 'lobby' | 'playing' | 'finished'
 type AnswerState = 'idle' | 'locked' | 'revealed'
 
@@ -39,11 +42,13 @@ export default function GameOnline(): JSX.Element {
     const unsub = onSnapshot(ref, snap => {
       if (snap.exists()) {
         const data = snap.data() as Room
+
         setRoom(data)
       } else {
         setRoom(null)
       }
     })
+
     return () => unsub()
   }, [roomId])
 
@@ -54,6 +59,7 @@ export default function GameOnline(): JSX.Element {
     const iv = setInterval(() => {
       updateDoc(ref, { [`players.${uid}.lastSeen`]: nowMs() }).catch(() => { })
     }, 10_000)
+
     return () => clearInterval(iv)
   }, [room, uid])
 
@@ -61,6 +67,7 @@ export default function GameOnline(): JSX.Element {
     if (!room) return 'lobby'
     if (room.status === 'waiting') return 'lobby'
     if (room.status === 'playing') return 'playing'
+
     return 'finished'
   }, [room])
 
@@ -100,6 +107,7 @@ export default function GameOnline(): JSX.Element {
   const handleCreate = async () => {
     if (!uid) return
     const id = creatingId.trim() || Math.random().toString(36).slice(2, 8).toUpperCase()
+
     await createRoom(id, uid, displayName, QUESTIONS, timePerQuestionMs)
     setRoomId(id)
   }
@@ -107,6 +115,7 @@ export default function GameOnline(): JSX.Element {
   const handleJoin = async () => {
     if (!uid) return
     const id = joinId.trim().toUpperCase()
+
     if (!id) return
     await joinRoom(id, uid, displayName)
     setRoomId(id)
@@ -143,8 +152,8 @@ export default function GameOnline(): JSX.Element {
       <main className='min-h-screen w-full bg-white flex items-center justify-center p-6 text-po'>
         <section className='w-full max-w-4xl'>
           <div className='rounded-2xl p-8 shadow-xl bg-white'>
-            <Chip className='flex justify-center items-center mb-10' size='lg' color='danger' variant='shadow'>
-              <p className='flex justify-center items-center'><i className='fi fi-rr-info flex justify-center items-center mr-5'></i> This section is closed until further notice. I need to pay Firebase.</p>
+            <Chip className='flex justify-center items-center mb-10' color='danger' size='lg' variant='shadow'>
+              <p className='flex justify-center items-center'><i className='fi fi-rr-info flex justify-center items-center mr-5' /> This section is closed until further notice. I need to pay Firebase.</p>
             </Chip>
             <h1 className='text-3xl text-po font-bold text-black'>
               PROGRAMMING TRIVIA: <span className='bg-emerald-400 text-white rounded-xl px-5'>Player vs Player</span>
@@ -162,7 +171,7 @@ export default function GameOnline(): JSX.Element {
                   <Input placeholder='Optional ID (e.g. ABC123)'
                     value={creatingId}
                     onChange={e => setCreatingId(e.target.value.toUpperCase())} />
-                  <Button onPress={handleCreate} className='w-full text-po' variant='shadow' color='secondary' size='lg'>
+                  <Button className='w-full text-po' color='secondary' size='lg' variant='shadow' onPress={handleCreate}>
                     Create And Entry
                   </Button>
                 </CardBody>
@@ -172,7 +181,7 @@ export default function GameOnline(): JSX.Element {
                 <CardBody className='flex flex-col justify-between'>
                   <div className='font-semibold'>Join the room</div>
                   <Input placeholder='ROOM ID' value={joinId} onChange={e => setJoinId(e.target.value.toUpperCase())} />
-                  <Button onPress={handleJoin} className='w-full text-po' variant='shadow' color='primary' size='lg'>
+                  <Button className='w-full text-po' color='primary' size='lg' variant='shadow' onPress={handleJoin}>
                     Join
                   </Button>
                 </CardBody>
@@ -215,7 +224,7 @@ export default function GameOnline(): JSX.Element {
             </div>
 
             <div className='mt-6 flex gap-3'>
-              <Button onPress={() => window.location.reload()} className='w-96' variant='shadow' color='secondary'>
+              <Button className='w-96' color='secondary' variant='shadow' onPress={() => window.location.reload()}>
                 Volver al Lobby
               </Button>
             </div>
@@ -259,11 +268,11 @@ export default function GameOnline(): JSX.Element {
             </div>
 
             <div className='mt-6 flex flex-wrap gap-3'>
-              <Button onPress={() => handleReady(!myPlayer?.ready)} className='text-po' variant='shadow' color='primary' size='lg'>
+              <Button className='text-po' color='primary' size='lg' variant='shadow' onPress={() => handleReady(!myPlayer?.ready)}>
                 {myPlayer?.ready ? 'Unready' : 'Ready'}
               </Button>
               {isHost && (
-                <Button onPress={handleStart} className='text-po' variant='shadow' color='secondary' size='lg'>
+                <Button className='text-po' color='secondary' size='lg' variant='shadow' onPress={handleStart}>
                   Start Game
                 </Button>
               )}
@@ -311,9 +320,9 @@ export default function GameOnline(): JSX.Element {
                 return (
                   <button
                     key={idx}
-                    onClick={() => onUserPick(idx)}
-                    disabled={answerState !== 'idle'}
                     className={classNames(base, color, answerState !== 'idle' && 'opacity-90 cursor-not-allowed')}
+                    disabled={answerState !== 'idle'}
+                    onClick={() => onUserPick(idx)}
                   >
                     <span className='font-semibold'>{String.fromCharCode(65 + idx)}.</span> {opt}
                   </button>
@@ -326,6 +335,7 @@ export default function GameOnline(): JSX.Element {
                 {otherPlayers.length ? (
                   otherPlayers.map(p => {
                     const hasPicked = typeof picksForQuestion[p.uid] === 'number'
+
                     return (
                       <span key={p.uid} className={classNames('px-2 py-1 mr-2 rounded-lg',
                         hasPicked ? 'bg-emerald-500 text-white' : 'bg-slate-300 text-slate-900')}>
@@ -339,7 +349,7 @@ export default function GameOnline(): JSX.Element {
               </div>
               <div className='flex gap-2'>
                 {isHost && (
-                  <Button onPress={forceReveal} className='w-40 text-po' variant='shadow' color='danger'>
+                  <Button className='w-40 text-po' color='danger' variant='shadow' onPress={forceReveal}>
                     Reveal / Next
                   </Button>
                 )}

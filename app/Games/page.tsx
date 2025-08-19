@@ -12,25 +12,25 @@ export default function Games() {
         </main>
         <div className='w-full mt-16 flex justify-evenly items-center '>
           <Link href={'/Games/GameBot'}>
-            <Card className='w-96 h-72 flex justify-center items-center' isPressable>
+            <Card isPressable className='w-96 h-72 flex justify-center items-center'>
               <CardBody>
                 <div>
                   <h2 className='text-center text-po text-lg'>PLAY WITH BOT</h2>
                 </div>
                 <div className='flex justify-center items-center mt-2'>
-                  <Image src={'/bot-image.svg'} alt={'Bot Image'} width={250} height={250} />
+                  <Image alt={'Bot Image'} height={250} src={'/bot-image.svg'} width={250} />
                 </div>
               </CardBody>
             </Card>
           </Link>
           <Link href={'/Games/GameOnline'}>
-            <Card className='w-96 h-72 flex justify-center items-center' isPressable>
+            <Card isPressable className='w-96 h-72 flex justify-center items-center'>
               <CardBody>
                 <div>
                   <h2 className='text-center text-po text-lg'>PLAY ONLINE</h2>
                 </div>
                 <div className='flex justify-center items-center mt-2'>
-                  <Image src={'/online-image.svg'} alt={'Online Image'} width={250} height={250} />
+                  <Image alt={'Online Image'} height={250} src={'/online-image.svg'} width={250} />
                 </div>
               </CardBody>
             </Card>

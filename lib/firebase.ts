@@ -28,5 +28,6 @@ export function ensureAnonAuth(): Promise<User> {
     })
     signInAnonymously(auth).catch(reject)
   })
+
   return authPromise
 }
