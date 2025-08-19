@@ -1,9 +1,8 @@
-# Interview Hack
+# Interview Hack - By IVAN P for Summer Of Making :D
 
 **Interview Hack** is a web application designed to help you practice and sharpen your programming skills through coding and theoretical interview questions. It features multiple difficulty levels and a modern UI built with **Next.js**, **TypeScript**, **TailwindCSS**, and **HeroUI**.
 
-<img width="2560" height="1440" alt="interview-hack-banner" src="https://github.com/user-attachments/assets/0e2734cb-eae6-4ecc-ad24-494e194df6e9" />
-
+![Interview Banner](https://github.com/user-attachments/assets/98faa382-a80b-40f1-89da-818d925946bd)
 
 ---
 
