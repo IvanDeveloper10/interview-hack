@@ -45,7 +45,7 @@ export default defineConfig([globalIgnores([
 ]), {
     extends: fixupConfigRules(compat.extends(
         "plugin:react/recommended",
-        "plugin:prettier/recommended",
+      
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
         "plugin:@next/next/recommended",
@@ -57,7 +57,7 @@ export default defineConfig([globalIgnores([
         import: fixupPluginRules(_import),
         "@typescript-eslint": typescriptEslint,
         "jsx-a11y": fixupPluginRules(jsxA11Y),
-        prettier: fixupPluginRules(prettier),
+
     },
 
     languageOptions: {
@@ -93,7 +93,6 @@ export default defineConfig([globalIgnores([
         "react-hooks/exhaustive-deps": "off",
         "jsx-a11y/click-events-have-key-events": "warn",
         "jsx-a11y/interactive-supports-focus": "warn",
-        "prettier/prettier": "warn",
         "no-unused-vars": "off",
         "unused-imports/no-unused-vars": "off",
         "unused-imports/no-unused-imports": "warn",
